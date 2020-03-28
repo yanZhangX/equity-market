@@ -1,0 +1,210 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html,body{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+div, span, object, iframe, img, table, caption, thead, tbody,
+tfoot, tr, tr, td, article, aside, canvas, details, figure, hgroup, menu,
+nav, footer, header, section, summary, mark, audio, video {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, address, cit, code,
+del, dfn, em, ins, q, samp, small, strong, sub, sup, b, i, hr, dl, dt, dd,
+ol, ul, li, fieldset, legend, label {
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+}
+article, aside, canvas, figure, figure img, figcaption, hgroup,
+footer, header, nav, section, audio, video {
+  display: block;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  caption, th, td {
+    text-align: center;
+    vertical-align: middle;
+  }
+}
+ol, ul,li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+  -webkit-touch-callout: none;
+  outline: none;
+}
+a img {
+  border: 0;
+}
+:focus { outline: 0; text-decoration: none; }
+i, address, caption, cite, code, dfn, em, strong, th, var { font-style: normal }
+h1, h2, h3, h4, h5, h6 { font-size: 100%; font-weight: normal }
+input, textarea { -webkit-user-select: text; -ms-user-select: text; user-select: text; -webkit-appearance: none; }
+input:focus, select:focus, textarea:focus, button:focus { outline: none; }
+input[type="text"], input[type="password"], input[type="search"], input[type="tel"], input[type="number"], input[type="email"], input[type="url"], textarea { -webkit-appearance: none; border: 1px solid; border-radius: 0; }
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance:none;
+}//去掉input在type="number"时右边的上下箭头
+//显示隐藏
+.hide { display: none !important;}
+.show { display: block !important;}
+
+.borderBox{ box-sizing: border-box;}
+/*浮动*/
+._left{float: left}
+._right{float: right}
+.clearfix:after{
+  content: "";
+  display: block;
+  clear: both;
+}
+/*定义滚动条*/
+.scrollbar::-webkit-scrollbar{
+  width:0;
+  height: 0;
+}
+//单行...
+.ellipsis{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.mixin-cliptext(@line:2){
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: @line;
+  -webkit-box-orient: vertical;
+}
+//图片
+.mixin-img{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+//圆形头像
+.radius_img(@width,@height){
+  width: @width;
+  height: @height;
+}
+.align_center{
+  text-align: center;
+}
+//borderRadius
+.mixin-borderRadius(@radius:6px) {
+  -webkit-border-radius:@radius;
+  -moz-border-radius: @radius;
+  -ms-border-radius: @radius;
+  -o-border-radius: @radius;
+  border-radius: @radius;
+}
+//定位上下左右居中
+.mixin-center{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+//定位上下居中
+.mixin-centerTop {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+//定位左右居中
+.mixin-centerLeft {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.mixin-right{
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+//设置按钮
+.mixin-setButton(@width,@height:auto,@color,@bgcolor,@size,@border:none,@bg){
+  width:@width;
+  height: @height;
+  color: @color;
+  background-color: @bgcolor;
+  font-size:@size ;
+  border: @border;
+  &:active{
+    background-color:@bg;
+  }
+}
+
+.set-border-bottom(@color,@width){
+  position: relative;
+  &:after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    border-bottom: @width solid @color;
+  }
+}
+
+/* 颜色变量 */
+
+/* 行为相关颜色 */
+@e-color-primary: #007aff;
+@e-color-success: #4cd964;
+@e-color-warning: #f0ad4e;
+@e-color-error: #dd524d;
+
+/* 背景颜色 */
+@e-bg-base-color:#282828;
+@e-bg-tab-color:#2c2b31;
+
+/* 边框颜色 */
+@e-border-color:#eee;
+@e-border-color-gray:#ebebeb;
+@e-border-color-gray-second:#bfbfbf;
+@e-border-color-gray-third:rgba(191,191,191,.5);
+
+/* 尺寸变量 */
+
+/* 文字尺寸 */
+@e-font-size-xs:.22rem;
+@e-font-size-sm:.24rem;
+@e-font-size-lm:.26rem;
+@e-font-size-base:.28rem;
+@e-font-size-lg:.32rem;
+
+/* 图片尺寸 */
+@e-img-size-sm:.40rem;
+@e-img-size-base:.52rem;
+@e-img-size-lg:.80rem;
+
+/* Border Radius */
+@e-border-radius-sm: .4rem;
+@e-border-radius-base: .6rem;
+@e-border-radius-lg: .12rem;
+@e-border-radius-circle: .50%;
+
+/* 水平间距 */
+@e-spacing-row-sm: .10rem;
+@e-spacing-row-base: .20rem;
+@e-spacing-row-lg: .30rem;
+
+/* 垂直间距 */
+@e-spacing-col-sm: .8rem;
+@e-spacing-col-base: .16rem;
+@e-spacing-col-lg: .24rem;
