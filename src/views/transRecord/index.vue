@@ -90,6 +90,9 @@ export default {
         ]
     }
   },
+  created(){
+    this.$store.commit("setTabIndex",1)
+  },
    methods: {
     onSwiperChange(from, to) {
       this.current = to
@@ -149,6 +152,7 @@ export default {
                         }
                     }
                     .bottom-line{
+                        font-size: .24rem;
                         color: #616161;
                     }
                 }

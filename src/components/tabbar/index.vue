@@ -1,14 +1,14 @@
 <template>
   <div class="e-tabbar md-example-child md-example-child-tabs md-example-child-tab-bar-4">
     <md-tab-bar
-      v-model="current"
+      v-model="$store.state.currentIndex"
       :items="items"
       :has-ink="false"
       @change="changeTab"
     >
-      <template slot="item" slot-scope="{ item, currentName}">
+      <template slot="item" slot-scope="{ item,currentName,index}">
         <div class="custom-item">
-          <img class="item-img" :src="currentName==item.name ? item.active : item.normal">
+          <img class="item-img" :src="$store.state.tabIndex==index ? item.active : item.normal">
           <div class="text">
             <span v-text="item.label"></span>
           </div>
@@ -20,7 +20,6 @@
 
 <script>
 import {TabBar} from 'mand-mobile'
-
 export default {
   name: 'tab-bar',
   /* DELETE */
@@ -32,7 +31,6 @@ export default {
   },
   data() {
     return {
-      current: 1,
       items: [
         {
           name:1,
@@ -53,14 +51,16 @@ export default {
           normal: require("../../assets/icons/tabbar/icon_user.png"),
           active: require('../../assets/icons/tabbar/icon_user.png'),
           label: '商品行情',
-          path:'/'
+          // path:'/'
         },
       ],
     }
   },
   methods:{
     changeTab(item, index, prevIndex){
-      this.$router.replace({path:item.path})
+      if(item.path){
+        this.$router.replace({path:item.path})
+      }
     }
   }
 }

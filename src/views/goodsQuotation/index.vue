@@ -36,6 +36,9 @@ export default {
       ]
     }
   },
+  created(){
+    this.$store.commit("setTabIndex",0)
+  },
   methods:{
     toKLine(){
       this.$router.push({path:"/kLine"})

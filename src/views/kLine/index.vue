@@ -103,15 +103,6 @@ export default {
                 label: {
                     show: true,
                     color: '#ff0',
-                    rich: {
-                        a: {
-                            // 没有设置 `lineHeight`，则 `lineHeight` 为 56
-                        }
-                    }
-                    // formatter: function(params) {
-                    //     // 假设此轴的 type 为 'time'。
-                    //     return 'some text' + params.value;
-                    // },
                 },
                 crossStyle: {
                     type: 'solid'
@@ -131,9 +122,9 @@ export default {
             // show:true,
             left: '5%', //grid 组件离容器左侧的距离。
             right: '10%',
-            height: '60%',
+            height: '50%',
         }, {
-            top: '75%',
+            top: '65%',
             left: '5%',
             right: '10%',
             height: '18%',
@@ -456,25 +447,6 @@ export default {
           val.data=this.resData.categoryData
       })
       this.echartsOption.series=[
-            {
-                type: 'line',
-                name: '分时',
-                data: this.resData.now,
-                itemStyle: {
-                    normal: {
-                        areaStyle: {
-                            type: 'default'
-                        },
-                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                            offset: 0,
-                            color: 'rgba(19, 37, 250,0.2)'
-                        }, {
-                            offset: 1,
-                            color: 'rgba(19, 37, 250,0.2)'
-                        }], false)
-                    }
-                }
-            },
             {
                 type: 'line',
                 name: '5日平均线',

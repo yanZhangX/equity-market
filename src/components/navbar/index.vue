@@ -14,7 +14,7 @@
                 <!-- 标题插槽 -->
                 <slot></slot>
             </div>
-            <div></div>
+            <div class="nav-header-btns"></div>
         </div>
     </div>
   </div>
@@ -115,7 +115,7 @@ export default {
             .nav-container-title{
                 font-size:.3rem;
                 text-align:center;
-                padding-right: .6rem;
+                // padding-right: .6rem;
             }
         }
     }
